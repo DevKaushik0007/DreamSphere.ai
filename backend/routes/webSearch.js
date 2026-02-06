@@ -1,7 +1,7 @@
 const express = require("express");
+const router = express.Router();
 const { webSearch } = require("../controllers/webSearchController");
 
-const router = express.Router();
 
 router.get("/", webSearch);
 

@@ -1,10 +1,10 @@
 const express = require("express");
+const router = express.Router();
 const {
   saveSearch,
   getSearchHistory
 } = require("../controllers/searchController");
 
-const router = express.Router();
 
 router.post("/", saveSearch);
 router.get("/", getSearchHistory);
