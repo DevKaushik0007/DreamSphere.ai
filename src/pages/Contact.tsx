@@ -20,25 +20,31 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    toast({
-      title: "Message sent! ✨",
-      description: "We'll get back to you as soon as possible.",
-    });
-    
-    setFormData({ name: "", email: "", subject: "", message: "" });
-    setIsSubmitting(false);
-  };
+  e.preventDefault();
+  setIsSubmitting(true);
+
+  await fetch("http://localhost:5000/api/contact", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(formData)
+  });
+
+  toast({
+    title: "Message sent! ✨",
+    description: "We'll get back to you as soon as possible.",
+  });
+
+  setFormData({ name: "", email: "", subject: "", message: "" });
+  setIsSubmitting(false);
+};
+
 
   const contactInfo = [
     { icon: Mail, title: "Email", value: "hello@dreamsphere.ai" },
     { icon: MessageSquare, title: "Support", value: "support@dreamsphere.ai" },
-    { icon: MapPin, title: "Location", value: "San Francisco, CA" }
+    { icon: MapPin, title: "Location", value: "India" }
   ];
 
   return (
