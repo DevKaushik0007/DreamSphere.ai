@@ -115,9 +115,29 @@ const Explore = () => {
   const [webLive, setWebLive] = useState([]);
 
 
+// const saveSearchToBackend = async (query: string, platform: string) => {
+//   try {
+//     await fetch("http://localhost:5000/api/search", {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify({
+//         query,
+//         platform,
+//         userId: user?.id, // 👈 Supabase user id
+//       }),
+//     });
+//   } catch (err) {
+//     console.error("Failed to save search:", err);
+//   }
+// };
+
 const saveSearchToBackend = async (query: string, platform: string) => {
   try {
-    await fetch("http://localhost:5000/api/search", {
+    const API = import.meta.env.VITE_API_BASE_URL;
+
+    await fetch(`${API}/api/search`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -125,7 +145,7 @@ const saveSearchToBackend = async (query: string, platform: string) => {
       body: JSON.stringify({
         query,
         platform,
-        userId: user?.id, // 👈 Supabase user id
+        userId: user?.id || null, // safe fallback
       }),
     });
   } catch (err) {
