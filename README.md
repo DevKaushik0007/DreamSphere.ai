@@ -1,73 +1,156 @@
-# Welcome to your Lovable project
+# 🌌 DreamSphere.ai  
+**Your Digital Dream Space**
 
-## Project info
+DreamSphere.ai is a modern full-stack web application designed to deliver a visually rich, interactive, and intelligent digital experience. It combines a sleek React frontend with a robust Node.js backend and secure integrations for authentication, data handling, and communication.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+---
 
-## How can I edit this code?
+## 🚀 Features
 
-There are several ways of editing your application.
+- 🌙 Modern, responsive UI with dark mode support  
+- ⚛️ React + TypeScript frontend (Vite)  
+- 🎨 Tailwind CSS + shadcn/ui for clean design  
+- 🔐 Authentication & protected routes  
+- 🤖 AI-powered features (API-based)  
+- 📩 Contact form with real email delivery  
+- 🗄️ MongoDB database integration  
+- 🔒 Secure environment variable handling  
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## 🏗️ Tech Stack
 
-Changes made via Lovable will be committed automatically to this repo.
+### Frontend
+- React (TypeScript)
+- Vite
+- Tailwind CSS
+- shadcn/ui
+- React Router
+- Framer Motion
 
-**Use your preferred IDE**
+### Backend
+- Node.js
+- Express.js
+- MongoDB
+- Nodemailer
+- CORS & dotenv
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## 📂 Project Structure
 
-Follow these steps:
+```text
+DreamSphere.ai/
+│
+├── frontend/
+│   ├── src/
+│   ├── public/
+│   └── package.json
+│
+├── backend/
+│   ├── routes/
+│   ├── controllers/
+│   ├── models/
+│   └── server.js
+│
+├── README.md
+└── .gitignore
+```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+---
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## ⚙️ Prerequisites
 
-# Step 3: Install the necessary dependencies.
-npm i
+- Node.js (v18+ recommended)
+- npm
+- MongoDB (local or Atlas)
+- Git
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+---
+
+## 🛠️ Installation & Setup
+
+### 1️⃣ Clone the Repository
+```bash
+git clone https://github.com/DevKaushik007/DreamSphere.ai.git
+cd DreamSphere.ai
+```
+
+---
+
+### 2️⃣ Backend Setup
+```bash
+cd backend
+npm install
+```
+
+Create `backend/.env`:
+```env
+PORT=5000
+MONGO_URI=mongodb://localhost:27017/dreamsphere
+EMAIL_USER=yourgmail@gmail.com
+EMAIL_PASS=your_app_password
+```
+
+Run backend:
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### 3️⃣ Frontend Setup
+```bash
+cd ../frontend
+npm install
+```
 
-**Use GitHub Codespaces**
+Create `frontend/.env`:
+```env
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_ANON_KEY=your_public_key
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Run frontend:
+```bash
+npm run dev
+```
 
-## What technologies are used for this project?
+---
 
-This project is built with:
+## 📩 Contact Form
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Messages sent through the Contact page are delivered directly to the admin email using Nodemailer and Gmail App Password authentication.
 
-## How can I deploy this project?
+---
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+## 🔒 Security Notes
 
-## Can I connect a custom domain to my Lovable project?
+- `.env` files are excluded via `.gitignore`
+- Never commit credentials or secrets
+- Frontend env variables must start with `VITE_`
 
-Yes, you can!
+---
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 🚀 Deployment
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+- Frontend: Vercel / Netlify / Lovable
+- Backend: Render / Railway / VPS
+- Database: MongoDB Atlas
+
+---
+
+## 👨‍💻 Author
+
+**Dev Kaushik**  
+GitHub: https://github.com/DevKaushik0007
+
+---
+
+## 📄 License
+
+MIT License
+
+---
+
+✨ *DreamSphere.ai — where ideas meet imagination.*
