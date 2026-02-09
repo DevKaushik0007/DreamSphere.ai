@@ -56,55 +56,41 @@ const express = require("express");
 const cors = require("cors");
 const connectDB = require("./config/db");
 
-const contactRoute = require("./routes/contact.route");
-const webSearchRoutes = require("./routes/webSearch");
-
 const app = express();
 
-/* =========================
-   DATABASE
-========================= */
+/* -------------------- DB -------------------- */
 connectDB();
 
-/* =========================
-   MIDDLEWARES
-========================= */
+/* ------------------ MIDDLEWARE ------------------ */
 app.use(express.json());
-
 app.use(
   cors({
-    origin: [
-      "https://dream-sphere-ai.vercel.app",
-      "http://localhost:5173",
-      "http://localhost:3000",
-    ],
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: true,
+    origin: "*",   // 🔥 OPEN CORS (stable)
   })
 );
 
-/* =========================
-   ROUTES
-========================= */
+/* ------------------ ROUTES ------------------ */
 app.use("/api/ai", require("./routes/aiRoutes"));
 app.use("/api/auth", require("./routes/authRoutes"));
+
+// 🔹 SEARCH (WORKING BEFORE)
 app.use("/api/search", require("./routes/searchRoutes"));
 app.use("/api/search", require("./routes/search"));
-app.use("/api", contactRoute);
-app.use("/api/web-search", webSearchRoutes);
 
-/* =========================
-   HEALTH CHECK
-========================= */
+// 🔹 CONTACT
+app.use("/api", require("./routes/contact.route"));
+
+// 🔹 WEB SEARCH
+app.use("/api/web-search", require("./routes/webSearch"));
+
+/* ------------------ HEALTH CHECK ------------------ */
 app.get("/", (req, res) => {
-  res.status(200).json({ status: "Backend running 🚀" });
+  res.send("DreamSphere backend running 🚀");
 });
 
-/* =========================
-   SERVER
-========================= */
+/* ------------------ SERVER ------------------ */
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`🚀 Server running on port ${PORT}`);
+  console.log(`✅ Server running on port ${PORT}`);
 });
+
