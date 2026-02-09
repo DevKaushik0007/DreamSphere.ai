@@ -34,13 +34,22 @@ const contactRoute = require("./routes/contact.route");
 const webSearchRoutes = require("./routes/webSearch");
 
 const app = express();
+connectDB();
 
 // ✅ Middlewares first
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "https://dream-sphere-ai.vercel.app", // your Vercel frontend
+      "http://localhost:5173",              // local dev (optional)
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 // ✅ Connect DB AFTER dotenv loaded
-connectDB();
 
 // Routes
 app.use("/api/ai", require("./routes/aiRoutes"));
