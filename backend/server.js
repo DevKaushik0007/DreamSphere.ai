@@ -63,17 +63,18 @@ const app = express();
 
 connectDB();
 // ✅ Middlewares first
+app.use(express.json());
 app.use(
   cors({
     origin: [
       "https://dream-sphere-ai.vercel.app", // your Vercel frontend
       "http://localhost:5173",              // local dev (optional)
+      "http://localhost:3000"
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
 );
-app.use(express.json());
 
 // ✅ Connect DB AFTER dotenv loaded
 
